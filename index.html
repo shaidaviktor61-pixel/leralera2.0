@@ -609,6 +609,16 @@
                 submitBtn.disabled = false;
             }
         });
+        // Анимация логотипа на мобильных по клику
+const logo = document.querySelector('.logo');
+if (logo) {
+    logo.addEventListener('click', function() {
+        this.classList.add('animate');
+        setTimeout(() => {
+            this.classList.remove('animate');
+        }, 600);
+    });
+}
     </script>
 </body>
 </html>
