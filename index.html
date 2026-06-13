@@ -609,16 +609,7 @@
                 submitBtn.disabled = false;
             }
         });
-        // Анимация логотипа на мобильных по клику
-const logo = document.querySelector('.logo');
-if (logo) {
-    logo.addEventListener('click', function() {
-        this.classList.add('animate');
-        setTimeout(() => {
-            this.classList.remove('animate');
-        }, 600);
-    });
-}
+        
         // ========== ЛОГОТИП: КЛИК НА ТЕЛЕФОНЕ ==========
 const logo = document.querySelector('.logo');
 const isMobile = window.innerWidth <= 768;
