@@ -619,6 +619,32 @@ if (logo) {
         }, 600);
     });
 }
+        // ========== ЛОГОТИП: КЛИК НА ТЕЛЕФОНЕ ==========
+const logo = document.querySelector('.logo');
+const isMobile = window.innerWidth <= 768;
+
+if (logo && isMobile) {
+    logo.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Переключаем класс filled
+        this.classList.toggle('filled');
+    });
+}
+
+// При изменении размера окна (например, поворот телефона)
+window.addEventListener('resize', function() {
+    const nowMobile = window.innerWidth <= 768;
+    if (logo && nowMobile) {
+        // На мобильном: вешаем обработчик, если ещё не висит
+        if (!logo.hasClickListener) {
+            logo.addEventListener('click', function(e) {
+                e.preventDefault();
+                this.classList.toggle('filled');
+            });
+            logo.hasClickListener = true;
+        }
+    }
+});
     </script>
 </body>
 </html>
