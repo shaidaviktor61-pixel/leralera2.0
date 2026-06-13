@@ -25,6 +25,7 @@
             <div class="social-icons">
                 <a href="https://vk.com/leralera_tattoo" class="social-link vk" target="_blank">VK</a>
                 <a href="https://t.me/tattoo_leralera" class="social-link tg" target="_blank">TG</a>
+                <a href="https://www.instagram.com/leralera_tattoo" class="social-link ig" target="_blank">INST</a>
             </div>
         </div>
     </header>
@@ -67,23 +68,46 @@
                 <p class="section-subtitle">всё для твоего комфорта и крутого результата</p>
             </div>
             <div class="services-grid">
-                <div class="service-card fade-up delay-1">
+                <!-- УСЛУГА 1: Консультация -->
+                <div class="service-card fade-up delay-1" data-service="Бесплатная консультация">
                     <div class="service-icon">💬</div>
                     <h3>Бесплатная консультация</h3>
                     <p>Обсудим идею, размер, место. Помогу с выбором эскиза. Можем немного порисовать на коже ✨</p>
-                    <div class="service-hover">→ узнать подробнее</div>
+                    <ul class="service-features">
+                        <li>🎯 Анализ идеи и пожеланий</li>
+                        <li>📏 Определение размера и места</li>
+                        <li>🎨 Примерка на коже маркером</li>
+                        <li>⏱ Длительность: 30-60 минут</li>
+                    </ul>
+                    <div class="service-btn">→ Записаться на консультацию</div>
                 </div>
-                <div class="service-card fade-up delay-2">
+                
+                <!-- УСЛУГА 2: Разработка эскиза -->
+                <div class="service-card fade-up delay-2" data-service="Разработка эскиза">
                     <div class="service-icon">🎨</div>
                     <h3>Разработка эскиза</h3>
                     <p>Создаю уникальный дизайн под ваш запрос. Держу в курсе на всех этапах работы.</p>
-                    <div class="service-hover">→ узнать подробнее</div>
+                    <ul class="service-features">
+                        <li>✏️ Уникальный дизайн с нуля</li>
+                        <li>🔄 До 2 бесплатных правок</li>
+                        <li>📩 Утверждение эскиза онлайн</li>
+                        <li>⏱ Срок: от 1 до 5 дней</li>
+                    </ul>
+                    <div class="service-btn">→ Заказать эскиз</div>
                 </div>
-                <div class="service-card fade-up delay-3">
+                
+                <!-- УСЛУГА 3: Нанесение тату -->
+                <div class="service-card fade-up delay-3" data-service="Нанесение тату">
                     <div class="service-icon">⚡</div>
                     <h3>Нанесение тату</h3>
                     <p>Сеанс в уютном кабинете в центре Иркутска. Работаю качественно и аккуратно.</p>
-                    <div class="service-hover">→ узнать подробнее</div>
+                    <ul class="service-features">
+                        <li>🛡️ Полная стерильность и безопасность</li>
+                        <li>💉 Качественные материалы и пигменты</li>
+                        <li>🎯 Индивидуальный подбор анестезии</li>
+                        <li>📋 Рекомендации по заживлению</li>
+                    </ul>
+                    <div class="service-btn">→ Записаться на сеанс</div>
                 </div>
             </div>
         </div>
@@ -158,34 +182,39 @@
                 <button class="filter-btn" data-filter="text">Тату-надписи</button>
             </div>
             <div class="gallery-grid" id="galleryGrid">
+                <!-- ФОТО 1 -->
                 <div class="gallery-item" data-category="black">
-                    <img src="050__210927969_457240190.jpg" alt="Тату работа">
+                    <img src="images/050__210927969_457240190.jpg" alt="концептуальный эскиз">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">концептуальный эскиз</div>
                         <div class="gallery-icon">🔍</div>
                     </div>
                 </div>
+                <!-- ФОТО 2 -->
                 <div class="gallery-item" data-category="text">
-                    <img src="043__210927969_457239778.jpg" alt="Тату работа">
+                    <img src="images/043__210927969_457239778.jpg" alt="meow / DENIM / JEANS">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">meow / DENIM / JEANS</div>
                         <div class="gallery-icon">🔍</div>
                     </div>
                 </div>
+                <!-- ФОТО 3 -->
                 <div class="gallery-item" data-category="text">
-                    <img src="034__210927969_457240191.jpg" alt="Тату работа">
+                    <img src="images/034__210927969_457240191.jpg" alt="who does not risk does not win">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">who does not risk does not win</div>
                         <div class="gallery-icon">🔍</div>
                     </div>
                 </div>
+                <!-- ФОТО 4 -->
                 <div class="gallery-item" data-category="text">
-                    <img src="009__210927969_457240845.jpg" alt="Тату работа">
+                    <img src="images/009__210927969_457240845.jpg" alt="on neunsum semper inpendium">
                     <div class="gallery-overlay">
                         <div class="gallery-caption">on neunsum semper inpendium</div>
                         <div class="gallery-icon">🔍</div>
                     </div>
                 </div>
+                <!-- заглушки -->
                 <div class="gallery-item placeholder-item" data-category="all">
                     <div class="placeholder-content">➕<br>ваша работа</div>
                 </div>
@@ -275,9 +304,89 @@
     </footer>
 
     <script>
-        // Анимация при скролле
+        // ========== LIGHTBOX (УВЕЛИЧЕННОЕ ФОТО) ==========
+        (function() {
+            // Находим все фото в галерее
+            const images = document.querySelectorAll('.gallery-item img');
+            console.log('Lightbox: найдено фото для клика:', images.length);
+            
+            // Добавляем обработчик на каждое фото
+            for (let i = 0; i < images.length; i++) {
+                const img = images[i];
+                img.style.cursor = 'pointer';
+                
+                img.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const src = this.src;
+                    const parent = this.closest('.gallery-item');
+                    const captionEl = parent?.querySelector('.gallery-caption');
+                    const caption = captionEl ? captionEl.textContent : '';
+                    
+                    console.log('Lightbox: открываю фото', src);
+                    
+                    // Создаём overlay
+                    const overlay = document.createElement('div');
+                    overlay.style.cssText = `
+                        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                        background: rgba(0,0,0,0.95); z-index: 10000;
+                        display: flex; align-items: center; justify-content: center;
+                        cursor: pointer;
+                    `;
+                    
+                    // Большое фото
+                    const bigImg = document.createElement('img');
+                    bigImg.src = src;
+                    bigImg.style.cssText = `
+                        max-width: 90%; max-height: 90%; object-fit: contain;
+                        border-radius: 8px; box-shadow: 0 0 30px black;
+                    `;
+                    
+                    // Крестик закрытия
+                    const closeBtn = document.createElement('div');
+                    closeBtn.innerHTML = '✕';
+                    closeBtn.style.cssText = `
+                        position: absolute; top: 20px; right: 30px;
+                        font-size: 40px; color: white; cursor: pointer;
+                        font-family: monospace; z-index: 10001;
+                    `;
+                    
+                    // Подпись
+                    const captionDiv = document.createElement('div');
+                    captionDiv.textContent = caption;
+                    captionDiv.style.cssText = `
+                        position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+                        color: white; background: rgba(0,0,0,0.6); padding: 8px 20px;
+                        border-radius: 30px; font-size: 14px; text-align: center;
+                    `;
+                    
+                    overlay.appendChild(bigImg);
+                    overlay.appendChild(closeBtn);
+                    if (caption) overlay.appendChild(captionDiv);
+                    document.body.appendChild(overlay);
+                    
+                    // Закрытие
+                    const closeOverlay = () => {
+                        if (document.body.contains(overlay)) {
+                            document.body.removeChild(overlay);
+                        }
+                        document.removeEventListener('keydown', escHandler);
+                    };
+                    
+                    const escHandler = (e) => {
+                        if (e.key === 'Escape') closeOverlay();
+                    };
+                    
+                    overlay.addEventListener('click', closeOverlay);
+                    closeBtn.addEventListener('click', closeOverlay);
+                    document.addEventListener('keydown', escHandler);
+                });
+            }
+        })();
+
+        // ========== АНИМАЦИЯ ПРИ СКРОЛЛЕ ==========
         const fadeElements = document.querySelectorAll('.fade-up');
-        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -285,30 +394,26 @@
                 }
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        
         fadeElements.forEach(el => observer.observe(el));
-        
-        // Мобильное меню
+
+        // ========== МОБИЛЬНОЕ МЕНЮ ==========
         const mobileBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('.nav-menu');
-        
         if (mobileBtn) {
             mobileBtn.addEventListener('click', () => {
                 navMenu.classList.toggle('open');
                 mobileBtn.textContent = navMenu.classList.contains('open') ? '✕' : '☰';
             });
         }
-        
-        // Фильтр галереи
+
+        // ========== ФИЛЬТР ГАЛЕРЕИ ==========
         const filterBtns = document.querySelectorAll('.filter-btn');
         const galleryItems = document.querySelectorAll('.gallery-item');
-        
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 const filter = btn.getAttribute('data-filter');
-                
                 galleryItems.forEach(item => {
                     if (filter === 'all' || item.getAttribute('data-category') === filter) {
                         item.style.display = 'flex';
@@ -320,55 +425,37 @@
                 });
             });
         });
-        
-        // ========== ФОРМА С ОТПРАВКОЙ В TELEGRAM (ЧЕРЕЗ CLOUDFLARE WORKER) ==========
-        
-        // 🔁 ЗАМЕНИТЕ ЭТИ ТРИ СТРОЧКИ НА СВОИ ДАННЫЕ
-        const WORKER_URL = 'https://telegram-proxy.shaidaviktor61.workers.dev/';  // ← URL вашего Worker'а
-        const BOT_TOKEN = '8998613925:AAGhh90YZqp_HX0FuDJXfwOJRBQ9KSjTeTw';  // ← ваш токен от BotFather
-        const CHAT_ID = '340502499';  // ← ваш личный ID (НЕ ТОКЕН!)
-        
+
+        // ========== ФОРМА В TELEGRAM ==========
+        const WORKER_URL = 'https://telegram-proxy.shaidaviktor61.workers.dev';
+        const BOT_TOKEN = '8998613925:AAGhh90YZqp_HX0FuDJXfwOJRBQ9KSjTeTw';
+        const CHAT_ID = '340502499';
+
         document.getElementById('tattooForm')?.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            // Показываем индикатор загрузки
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = '⏳ Отправляю...';
             submitBtn.disabled = true;
-            
-            // Собираем данные из формы
+
             const name = document.querySelector('input[placeholder="Ваше имя"]').value;
             const phone = document.querySelector('input[placeholder="Номер телефона или Telegram"]').value;
             const idea = document.querySelector('select:first-of-type').value;
             const place = document.querySelector('select:last-of-type').value;
-            
-            // Формируем сообщение
-            const message = `🖤 **НОВАЯ ЗАЯВКА НА ТАТУ** 🖤
-            
-👤 **Имя:** ${name}
-📱 **Контакты:** ${phone}
-💡 **Идея:** ${idea}
-📍 **Место:** ${place}
-            
-📅 Отправлено с сайта leralera.tattoo`;
-            
+
+            const message = `🖤 **НОВАЯ ЗАЯВКА НА ТАТУ** 🖤\n\n👤 **Имя:** ${name}\n📱 **Контакты:** ${phone}\n💡 **Идея:** ${idea}\n📍 **Место:** ${place}\n\n📅 Отправлено с сайта leralera.tattoo`;
+
             try {
-                // Отправляем через Cloudflare Worker (обходит CORS)
                 const response = await fetch(`${WORKER_URL}/bot${BOT_TOKEN}/sendMessage`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         chat_id: CHAT_ID,
                         text: message,
                         parse_mode: 'Markdown'
                     })
                 });
-                
                 const data = await response.json();
-                
                 if (data.ok) {
                     alert('✅ Спасибо! Я свяжусь с вами в ближайшее время ♡');
                     this.reset();
@@ -383,11 +470,10 @@
                 submitBtn.disabled = false;
             }
         });
-        
-        // Активная ссылка в меню при скролле
+
+        // ========== АКТИВНАЯ ССЫЛКА В МЕНЮ ==========
         const sections = document.querySelectorAll('.section');
         const navLinks = document.querySelectorAll('.nav-link');
-        
         window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
@@ -402,6 +488,125 @@
                     link.classList.add('active');
                 }
             });
+        });
+                // ========== МОДАЛЬНОЕ ОКНО ДЛЯ ЗАЯВКИ ПО УСЛУГАМ ==========
+        
+        // Создаём модальное окно (если его нет)
+        if (!document.querySelector('.modal-overlay')) {
+            const modalHTML = `
+                <div class="modal-overlay">
+                    <div class="modal-window">
+                        <div class="modal-close">✕</div>
+                        <div class="modal-header">
+                            <h3 id="modalServiceTitle">Запись на услугу</h3>
+                            <p>Заполните форму, и я свяжусь с вами</p>
+                        </div>
+                        <div class="modal-body">
+                            <form class="contact-form" id="modalForm">
+                                <input type="text" id="modalName" placeholder="Ваше имя" required>
+                                <input type="tel" id="modalPhone" placeholder="Номер телефона или Telegram" required>
+                                <select id="modalIdea" required>
+                                    <option value="">Какая у вас идея?</option>
+                                    <option>Есть готовый эскиз</option>
+                                    <option>Нужна разработка эскиза</option>
+                                    <option>Пока не уверен(а), хочу консультацию</option>
+                                </select>
+                                <select id="modalPlace" required>
+                                    <option value="">Выберите желаемое место тату</option>
+                                    <option>Рука (плечо/предплечье)</option>
+                                    <option>Нога (бедро/голень)</option>
+                                    <option>Спина/грудь</option>
+                                    <option>Другое место</option>
+                                </select>
+                                <button type="submit" class="btn-primary">📩 Отправить заявку</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            ✨ отвечаю обычно в течение часа
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+        
+        const modalOverlay = document.querySelector('.modal-overlay');
+        const modalClose = document.querySelector('.modal-close');
+        const modalServiceTitle = document.getElementById('modalServiceTitle');
+        
+        // Открытие модального окна при клике на кнопку услуги
+        document.querySelectorAll('.service-card .service-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const card = btn.closest('.service-card');
+                const serviceName = card.getAttribute('data-service') || card.querySelector('h3')?.textContent || 'Услуга';
+                modalServiceTitle.textContent = `Запись: ${serviceName}`;
+                modalOverlay.classList.add('active');
+            });
+        });
+        
+        // Закрытие модального окна
+        const closeModal = () => {
+            modalOverlay.classList.remove('active');
+        };
+        
+        modalClose?.addEventListener('click', closeModal);
+        modalOverlay?.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) closeModal();
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalOverlay?.classList.contains('active')) {
+                closeModal();
+            }
+        });
+        
+        // Обработка отправки формы из модального окна
+        document.getElementById('modalForm')?.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = '⏳ Отправляю...';
+            submitBtn.disabled = true;
+            
+            const name = document.getElementById('modalName').value;
+            const phone = document.getElementById('modalPhone').value;
+            const idea = document.getElementById('modalIdea').value;
+            const place = document.getElementById('modalPlace').value;
+            const service = modalServiceTitle.textContent.replace('Запись: ', '');
+            
+            const message = `🖤 **НОВАЯ ЗАЯВКА НА ТАТУ** 🖤\n\n📋 **Услуга:** ${service}\n👤 **Имя:** ${name}\n📱 **Контакты:** ${phone}\n💡 **Идея:** ${idea}\n📍 **Место:** ${place}\n\n📅 Отправлено с сайта leralera.tattoo`;
+            
+            const WORKER_URL = 'https://telegram-proxy.shaidaviktor61.workers.dev';
+            const BOT_TOKEN = '8998613925:AAGhh90YZqp_HX0FuDJXfwOJRBQ9KSjTeTw';
+            const CHAT_ID = '340502499';
+            
+            try {
+                const response = await fetch(`${WORKER_URL}/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: message,
+                        parse_mode: 'Markdown'
+                    })
+                });
+                const data = await response.json();
+                if (data.ok) {
+                    alert('✅ Спасибо! Я свяжусь с вами в ближайшее время ♡');
+                    closeModal();
+                    this.reset();
+                } else {
+                    alert('❌ Ошибка: ' + (data.description || 'Попробуйте ещё раз'));
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                alert('❌ Ошибка отправки. Напишите мне напрямую в Telegram');
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
         });
     </script>
 </body>
