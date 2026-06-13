@@ -960,3 +960,249 @@ html {
     color: #666;
     transform: translateX(5px);
 }
+/* ============================================ */
+/* ПОЛНАЯ АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ И ПЛАНШЕТОВ  */
+/* ============================================ */
+
+/* Планшеты (до 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .services-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .hero-content {
+        gap: 30px;
+    }
+}
+
+/* Телефоны (до 768px) */
+@media (max-width: 768px) {
+    
+    /* Шапка и меню */
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 110px;
+        left: -100%;
+        width: 80%;
+        height: calc(100vh - 110px);
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 20px rgba(0,0,0,0.1);
+        z-index: 998;
+    }
+    
+    .nav-menu.open {
+        left: 0;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .nav-link {
+        font-size: 18px;
+        padding: 12px;
+    }
+    
+    /* Hero секция */
+    .hero-section {
+        padding-top: 140px;
+        min-height: auto;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-sub {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .hero-visual {
+        width: 280px;
+        margin: 0 auto;
+    }
+    
+    /* Услуги */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .service-card {
+        padding: 25px 20px;
+    }
+    
+    .service-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    /* Обо мне */
+    .about-inner {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .about-image {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .about-text {
+        text-align: center;
+    }
+    
+    .about-feature {
+        text-align: left;
+    }
+    
+    /* Галерея */
+    .gallery-filter {
+        gap: 8px;
+    }
+    
+    .filter-btn {
+        padding: 6px 14px;
+        font-size: 0.75rem;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    /* Отзывы */
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .review-card {
+        padding: 20px;
+    }
+    
+    /* Контакты */
+    .contact-wrapper {
+        flex-direction: column;
+        padding: 25px;
+        gap: 30px;
+    }
+    
+    .contact-info {
+        text-align: center;
+    }
+    
+    .contact-info h2 {
+        font-size: 1.6rem;
+    }
+    
+    .contact-form {
+        width: 100%;
+    }
+    
+    /* Модальное окно */
+    .modal-window {
+        width: 95%;
+        margin: 20px;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    /* Соцсети */
+    .social-icons {
+        justify-content: center;
+    }
+    
+    .social-link {
+        padding: 6px 14px;
+        font-size: 11px;
+    }
+    
+    /* Секции */
+    .section {
+        padding: 50px 0;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Маленькие телефоны (до 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-badge {
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+    
+    .hero-buttons {
+        gap: 12px;
+    }
+    
+    .modal-window {
+        width: 95%;
+    }
+    
+    .modal-body .contact-form input,
+    .modal-body .contact-form select {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+    
+    .service-features li {
+        font-size: 0.75rem;
+    }
+}
