@@ -646,5 +646,16 @@ window.addEventListener('resize', function() {
     }
 });
     </script>
+<button id="toTop" style="position:fixed; bottom:20px; right:20px; background:#1a1a1a; color:white; border:none; border-radius:50%; width:50px; height:50px; cursor:pointer; display:none;">↑</button>
+
+<script>
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', () => {
+        toTop.style.display = window.scrollY > 500 ? 'block' : 'none';
+    });
+    toTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
 </body>
 </html>
