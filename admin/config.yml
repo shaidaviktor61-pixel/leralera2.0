@@ -1,0 +1,36 @@
+# static/admin/config.yml
+
+backend:
+  name: github
+  repo: shaidaviktor61-pixel/leralera2.0 # <-- СЮДА ВАШИ ДАННЫЕ! Например: 'ivanov/leralera2.0'
+  branch: main # или master, в зависимости от вашей основной ветки
+
+# Папка для загружаемых изображений
+media_folder: 'assets/images/uploads'
+public_folder: '/assets/images/uploads'
+
+# Здесь мы описываем, какие разделы сайта будут в админке
+collections:
+  # Например, коллекция "Портфолио" (набор ваших работ)
+  - name: 'portfolio'
+    label: 'Портфолио'
+    label_singular: 'Работа'
+    folder: 'content/portfolio' # <-- Папка, где будут лежать файлы работ
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Заголовок работы', name: 'title', widget: 'string' }
+      - { label: 'Описание', name: 'body', widget: 'text' }
+      - { label: 'Изображение', name: 'image', widget: 'image' }
+      - { label: 'Дата создания', name: 'date', widget: 'datetime' }
+
+  # Пример для редактирования "О себе"
+  - name: 'settings'
+    label: 'Настройки сайта'
+    label_singular: 'Страница'
+    files:
+      - label: 'О себе'
+        name: 'about'
+        file: 'content/about.md'
+        fields:
+          - { label: 'Текст "О себе"', name: 'body', widget: 'markdown' }
