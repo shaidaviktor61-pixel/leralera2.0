@@ -1,21 +1,58 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2WVMZPLNKV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-2WVMZPLNKV');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>leralera — Тату-мастер Иркутск</title>
     <link rel="stylesheet" href="style.css">
     <script src="config.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        /* Стили для кнопки переключения языка */
+        .lang-toggle-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px 12px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background: transparent;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            margin-right: 6px;
+            color: #1a1a1a;
+            min-width: 44px;
+            letter-spacing: 0.5px;
+        }
+        .lang-toggle-btn:hover {
+            background: rgba(0,0,0,0.06);
+            transform: scale(1.05);
+        }
+        .lang-toggle-btn .lang-en {
+            display: none;
+        }
+        body.dark-theme .lang-toggle-btn {
+            border-color: #444;
+            color: #f0f0f0;
+        }
+        body.dark-theme .lang-toggle-btn:hover {
+            background: rgba(255,255,255,0.08);
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        @media (max-width: 768px) {
+            .lang-toggle-btn {
+                padding: 4px 10px;
+                font-size: 11px;
+                min-width: 38px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -23,13 +60,35 @@
         <div class="navbar">
             <div class="logo">leralera — ТАТУ</div>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Главная</a></li>
-                <li><a href="#services" class="nav-link">Услуги</a></li>
-                <li><a href="#about" class="nav-link">Обо мне</a></li>
-                <li><a href="#gallery" class="nav-link">Галерея</a></li>
-                <li><a href="#contact" class="nav-link">Контакты</a></li>
+                <li><a href="#home" class="nav-link" data-ru="Главная" data-en="Home">Главная</a></li>
+                <li><a href="#services" class="nav-link" data-ru="Услуги" data-en="Services">Услуги</a></li>
+                <li><a href="#about" class="nav-link" data-ru="Обо мне" data-en="About">Обо мне</a></li>
+                <li><a href="#gallery" class="nav-link" data-ru="Галерея" data-en="Gallery">Галерея</a></li>
+                <li><a href="#contact" class="nav-link" data-ru="Контакты" data-en="Contact">Контакты</a></li>
             </ul>
-            <button class="mobile-menu-btn" aria-label="Меню">☰</button>
+            <div class="header-actions">
+                <button class="lang-toggle-btn" id="langToggle" aria-label="Переключить язык">
+                    <span class="lang-ru">RU</span>
+                    <span class="lang-en">EN</span>
+                </button>
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Переключить тему">
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="24" height="24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Меню">☰</button>
+            </div>
         </div>
         <div class="social-bar">
             <div class="social-icons">
@@ -45,26 +104,26 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text fade-up">
-                    <div class="hero-badge">✨ тату-мастер Иркутск</div>
-                    <h1>Я — ТВОЙ <span class="accent">ТАТУ-МАСТЕР</span></h1>
-                    <p class="hero-name">Меня зовут Лера</p>
-                    <p>Добро пожаловать в мою тату-мастерскую ♡</p>
-                    <p class="hero-sub">Делаю классные татуировки в Иркутске с 2021 года.<br>Аккуратно работаю с кожей, на моих сеансах тебе будет комфортно ;)</p>
+                    <div class="hero-badge" data-ru="✨ тату-мастер Иркутск" data-en="✨ tattoo master Irkutsk">✨ тату-мастер Иркутск</div>
+                    <h1><span data-ru="Я — ТВОЙ" data-en="I AM YOUR">Я — ТВОЙ</span> <span class="accent" data-ru="ТАТУ-МАСТЕР" data-en="TATTOO MASTER">ТАТУ-МАСТЕР</span></h1>
+                    <p class="hero-name" data-ru="Меня зовут Лера" data-en="My name is Lera">Меня зовут Лера</p>
+                    <p data-ru="Добро пожаловать в мою тату-мастерскую ♡" data-en="Welcome to my tattoo studio ♡">Добро пожаловать в мою тату-мастерскую ♡</p>
+                    <p class="hero-sub" data-ru="Делаю классные татуировки в Иркутске с 2021 года. Аккуратно работаю с кожей, на моих сеансах тебе будет комфортно ;)" data-en="I make cool tattoos in Irkutsk since 2021. I work carefully with skin, you will be comfortable at my sessions ;)">Делаю классные татуировки в Иркутске с 2021 года.<br>Аккуратно работаю с кожей, на моих сеансах тебе будет комфортно ;)</p>
                     <div class="hero-buttons">
-                        <a href="#contact" class="btn-primary">✨ Записаться</a>
-                        <a href="#gallery" class="btn-secondary">📸 Смотреть работы</a>
+                        <a href="#contact" class="btn-primary" data-ru="✨ Записаться" data-en="✨ Book now">✨ Записаться</a>
+                        <a href="#gallery" class="btn-secondary" data-ru="📸 Смотреть работы" data-en="📸 View works">📸 Смотреть работы</a>
                     </div>
                 </div>
                 <div class="hero-visual fade-up delay-1">
                     <div class="hero-image-wrapper">
                         <img src="images/about_me2.jpg" alt="Тату-мастер Лера">
-                        <div class="hero-badge-floating">♥ 5+ лет опыта</div>
+                        <div class="hero-badge-floating" data-ru="♥ 5+ лет опыта" data-en="♥ 5+ years of experience">♥ 5+ лет опыта</div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="hero-scroll-hint">
-            <span>листай вниз</span>
+            <span data-ru="листай вниз" data-en="scroll down">листай вниз</span>
             <div class="scroll-mouse"></div>
         </div>
     </section>
@@ -73,51 +132,48 @@
     <section id="services" class="section services-section">
         <div class="container">
             <div class="section-header fade-up">
-                <span class="section-tag">🌟 что я предлагаю</span>
-                <h2>Мои услуги</h2>
-                <p class="section-subtitle">всё для твоего комфорта и крутого результата</p>
+                <span class="section-tag" data-ru="🌟 что я предлагаю" data-en="🌟 what I offer">🌟 что я предлагаю</span>
+                <h2 data-ru="Мои услуги" data-en="My services">Мои услуги</h2>
+                <p class="section-subtitle" data-ru="всё для твоего комфорта и крутого результата" data-en="everything for your comfort and great result">всё для твоего комфорта и крутого результата</p>
             </div>
             <div class="services-grid">
-                <!-- УСЛУГА 1: Консультация -->
                 <div class="service-card fade-up delay-1" data-service="Бесплатная консультация">
                     <div class="service-icon">💬</div>
-                    <h3>Бесплатная консультация</h3>
-                    <p>Обсудим идею, размер, место. Помогу с выбором эскиза. Можем немного порисовать на коже ✨</p>
+                    <h3 data-ru="Бесплатная консультация" data-en="Free consultation">Бесплатная консультация</h3>
+                    <p data-ru="Обсудим идею, размер, место. Помогу с выбором эскиза. Можем немного порисовать на коже ✨" data-en="We will discuss the idea, size, placement. I will help with sketch selection. We can draw a little on the skin ✨">Обсудим идею, размер, место. Помогу с выбором эскиза. Можем немного порисовать на коже ✨</p>
                     <ul class="service-features">
-                        <li>🎯 Анализ идеи и пожеланий</li>
-                        <li>📏 Определение размера и места</li>
-                        <li>🎨 Примерка на коже маркером</li>
-                        <li>⏱ Длительность: 30-60 минут</li>
+                        <li data-ru="🎯 Анализ идеи и пожеланий" data-en="🎯 Idea and wishes analysis">🎯 Анализ идеи и пожеланий</li>
+                        <li data-ru="📏 Определение размера и места" data-en="📏 Size and placement determination">📏 Определение размера и места</li>
+                        <li data-ru="🎨 Примерка на коже маркером" data-en="🎨 Marker test on skin">🎨 Примерка на коже маркером</li>
+                        <li data-ru="⏱ Длительность: 30-60 минут" data-en="⏱ Duration: 30-60 minutes">⏱ Длительность: 30-60 минут</li>
                     </ul>
-                    <div class="service-btn">→ Записаться на консультацию</div>
+                    <div class="service-btn" data-ru="→ Записаться на консультацию" data-en="→ Book consultation">→ Записаться на консультацию</div>
                 </div>
                 
-                <!-- УСЛУГА 2: Разработка эскиза -->
                 <div class="service-card fade-up delay-2" data-service="Разработка эскиза">
                     <div class="service-icon">🎨</div>
-                    <h3>Разработка эскиза</h3>
-                    <p>Создаю уникальный дизайн под ваш запрос. Держу в курсе на всех этапах работы.</p>
+                    <h3 data-ru="Разработка эскиза" data-en="Sketch development">Разработка эскиза</h3>
+                    <p data-ru="Создаю уникальный дизайн под ваш запрос. Держу в курсе на всех этапах работы." data-en="I create unique design according to your request. I keep you updated at all stages.">Создаю уникальный дизайн под ваш запрос. Держу в курсе на всех этапах работы.</p>
                     <ul class="service-features">
-                        <li>✏️ Уникальный дизайн с нуля</li>
-                        <li>🔄 До 2 бесплатных правок</li>
-                        <li>📩 Утверждение эскиза онлайн</li>
-                        <li>⏱ Срок: от 1 до 5 дней</li>
+                        <li data-ru="✏️ Уникальный дизайн с нуля" data-en="✏️ Unique design from scratch">✏️ Уникальный дизайн с нуля</li>
+                        <li data-ru="🔄 До 2 бесплатных правок" data-en="🔄 Up to 2 free revisions">🔄 До 2 бесплатных правок</li>
+                        <li data-ru="📩 Утверждение эскиза онлайн" data-en="📩 Online sketch approval">📩 Утверждение эскиза онлайн</li>
+                        <li data-ru="⏱ Срок: от 1 до 5 дней" data-en="⏱ Timeline: 1-5 days">⏱ Срок: от 1 до 5 дней</li>
                     </ul>
-                    <div class="service-btn">→ Заказать эскиз</div>
+                    <div class="service-btn" data-ru="→ Заказать эскиз" data-en="→ Order sketch">→ Заказать эскиз</div>
                 </div>
                 
-                <!-- УСЛУГА 3: Нанесение тату -->
                 <div class="service-card fade-up delay-3" data-service="Нанесение тату">
                     <div class="service-icon">⚡</div>
-                    <h3>Нанесение тату</h3>
-                    <p>Сеанс в уютном кабинете в центре Иркутска. Работаю качественно и аккуратно.</p>
+                    <h3 data-ru="Нанесение тату" data-en="Tattoo application">Нанесение тату</h3>
+                    <p data-ru="Сеанс в уютном кабинете в центре Иркутска. Работаю качественно и аккуратно." data-en="Session in a cozy studio in the center of Irkutsk. I work with quality and precision.">Сеанс в уютном кабинете в центре Иркутска. Работаю качественно и аккуратно.</p>
                     <ul class="service-features">
-                        <li>🛡️ Полная стерильность и безопасность</li>
-                        <li>💉 Качественные материалы и пигменты</li>
-                        <li>🎯 Индивидуальный подбор анестезии</li>
-                        <li>📋 Рекомендации по заживлению</li>
+                        <li data-ru="🛡️ Полная стерильность и безопасность" data-en="🛡️ Complete sterility and safety">🛡️ Полная стерильность и безопасность</li>
+                        <li data-ru="💉 Качественные материалы и пигменты" data-en="💉 Quality materials and pigments">💉 Качественные материалы и пигменты</li>
+                        <li data-ru="🎯 Индивидуальный подбор анестезии" data-en="🎯 Individual anesthesia selection">🎯 Индивидуальный подбор анестезии</li>
+                        <li data-ru="📋 Рекомендации по заживлению" data-en="📋 Healing recommendations">📋 Рекомендации по заживлению</li>
                     </ul>
-                    <div class="service-btn">→ Записаться на сеанс</div>
+                    <div class="service-btn" data-ru="→ Записаться на сеанс" data-en="→ Book a session">→ Записаться на сеанс</div>
                 </div>
             </div>
         </div>
@@ -128,18 +184,18 @@
         <div class="container">
             <div class="about-inner">
                 <div class="about-text fade-up">
-                    <span class="section-tag">💫 обо мне</span>
-                    <h2>Привет, я Лера</h2>
-                    <p class="lead">Делаю классные татуировки в Иркутске с 2021 года. Я аккуратно работаю с кожей, на моих сеансах тебе будет комфортно ;)</p>
+                    <span class="section-tag" data-ru="💫 обо мне" data-en="💫 about me">💫 обо мне</span>
+                    <h2 data-ru="Привет, я Лера" data-en="Hi, I'm Lera">Привет, я Лера</h2>
+                    <p class="lead" data-ru="Делаю классные татуировки в Иркутске с 2021 года. Я аккуратно работаю с кожей, на моих сеансах тебе будет комфортно ;)" data-en="I make cool tattoos in Irkutsk since 2021. I work carefully with skin, you will be comfortable at my sessions ;)">Делаю классные татуировки в Иркутске с 2021 года. Я аккуратно работаю с кожей, на моих сеансах тебе будет комфортно ;)</p>
                     
                     <div class="about-feature">
                         <div class="about-icon">🎯</div>
                         <div>
-                            <h3>Почему именно я?</h3>
+                            <h3 data-ru="Почему именно я?" data-en="Why choose me?">Почему именно я?</h3>
                             <ul class="about-list">
-                                <li>Бесплатные консультация и разработка эскиза</li>
-                                <li>Тревожность по поводу своей первой татуировки? Уже не первая тату, но всё равно есть сомнения? — приходи, обсудим</li>
-                                <li>Хочешь сделать интересную татуировку, но пока нет эскиза? — я помогу</li>
+                                <li data-ru="Бесплатные консультация и разработка эскиза" data-en="Free consultation and sketch development">Бесплатные консультация и разработка эскиза</li>
+                                <li data-ru="Тревожность по поводу своей первой татуировки? Уже не первая тату, но всё равно есть сомнения? — приходи, обсудим" data-en="Nervous about your first tattoo? Not your first but still have doubts? — come, let's discuss">Тревожность по поводу своей первой татуировки? Уже не первая тату, но всё равно есть сомнения? — приходи, обсудим</li>
+                                <li data-ru="Хочешь сделать интересную татуировку, но пока нет эскиза? — я помогу" data-en="Want an interesting tattoo but don't have a sketch yet? — I will help">Хочешь сделать интересную татуировку, но пока нет эскиза? — я помогу</li>
                             </ul>
                         </div>
                     </div>
@@ -147,31 +203,31 @@
                     <div class="about-feature">
                         <div class="about-icon">🛡️</div>
                         <div>
-                            <h3>Безопасность и комфорт</h3>
-                            <p>Мне доверяют, потому что я ответственно отношусь к своему здоровью и здоровью своих гостей. Работаю только с качественными материалами, использую одноразовые расходники и соблюдаю нормы обработки рабочего места до и после каждого сеанса.</p>
+                            <h3 data-ru="Безопасность и комфорт" data-en="Safety and comfort">Безопасность и комфорт</h3>
+                            <p data-ru="Мне доверяют, потому что я ответственно отношусь к своему здоровью и здоровью своих гостей. Работаю только с качественными материалами, использую одноразовые расходники и соблюдаю нормы обработки рабочего места до и после каждого сеанса." data-en="People trust me because I take responsibility for my health and the health of my guests. I only work with quality materials, use disposable supplies, and follow workplace sanitation standards before and after each session.">Мне доверяют, потому что я ответственно отношусь к своему здоровью и здоровью своих гостей. Работаю только с качественными материалами, использую одноразовые расходники и соблюдаю нормы обработки рабочего места до и после каждого сеанса.</p>
                         </div>
                     </div>
                     
                     <div class="about-feature">
                         <div class="about-icon">📍</div>
                         <div>
-                            <h3>Уютный кабинет</h3>
-                            <p>Мой уютный кабинет находится в центре города. Удобное кресло, приятная музыка — со мной легко и спокойно ;)</p>
+                            <h3 data-ru="Уютный кабинет" data-en="Cozy studio">Уютный кабинет</h3>
+                            <p data-ru="Мой уютный кабинет находится в центре города. Удобное кресло, приятная музыка — со мной легко и спокойно ;)" data-en="My cozy studio is located in the city center. Comfortable chair, pleasant music — with me it's easy and calm ;)">Мой уютный кабинет находится в центре города. Удобное кресло, приятная музыка — со мной легко и спокойно ;)</p>
                         </div>
                     </div>
                     
                     <div class="about-feature">
                         <div class="about-icon">🎁</div>
                         <div>
-                            <h3>Маленький подарок после сеанса</h3>
-                            <p>После нашего сеанса я вручу тебе небольшой презент в честь знакомства! Подсказка: он будет зависеть от способа заживления татуировки, который ты выберешь.</p>
+                            <h3 data-ru="Маленький подарок после сеанса" data-en="A little gift after the session">Маленький подарок после сеанса</h3>
+                            <p data-ru="После нашего сеанса я вручу тебе небольшой презент в честь знакомства! Подсказка: он будет зависеть от способа заживления татуировки, который ты выберешь." data-en="After our session I will give you a small gift to celebrate our acquaintance! Hint: it will depend on the healing method you choose.">После нашего сеанса я вручу тебе небольшой презент в честь знакомства! Подсказка: он будет зависеть от способа заживления татуировки, который ты выберешь.</p>
                         </div>
                     </div>
                 </div>
                 <div class="about-image fade-up delay-1">
                     <div class="about-img-wrapper">
                         <img src="images/about_me.jpg" alt="Лера — тату-мастер">
-                        <div class="about-sticker">♥ с любовью к делу</div>
+                        <div class="about-sticker" data-ru="♥ с любовью к делу" data-en="♥ with love for the craft">♥ с любовью к делу</div>
                     </div>
                 </div>
             </div>
@@ -182,25 +238,23 @@
     <section id="gallery" class="section gallery-section">
         <div class="container">
             <div class="section-header fade-up">
-                <span class="section-tag">📷 портфолио</span>
-                <h2>Мои работы</h2>
-                <p class="section-subtitle">каждая татуировка — уникальная история</p>
+                <span class="section-tag" data-ru="📷 портфолио" data-en="📷 portfolio">📷 портфолио</span>
+                <h2 data-ru="Мои работы" data-en="My works">Мои работы</h2>
+                <p class="section-subtitle" data-ru="каждая татуировка — уникальная история" data-en="each tattoo is a unique story">каждая татуировка — уникальная история</p>
             </div>
             <div class="gallery-filter fade-up">
-                <button class="filter-btn active" data-filter="all">Все работы</button>
-                <button class="filter-btn" data-filter="black">Чёрно-белые</button>
-                <button class="filter-btn" data-filter="text">Тату-надписи</button>
+                <button class="filter-btn active" data-filter="all" data-ru="Все работы" data-en="All works">Все работы</button>
+                <button class="filter-btn" data-filter="black" data-ru="Чёрно-белые" data-en="Black & white">Чёрно-белые</button>
+                <button class="filter-btn" data-filter="text" data-ru="Тату-надписи" data-en="Tattoo text">Тату-надписи</button>
             </div>
             <div class="gallery-grid" id="galleryGrid">
-                <!-- ФОТО 1 -->
                 <div class="gallery-item" data-category="black">
                     <img src="images/050__210927969_457240190.jpg" alt="концептуальный эскиз">
                     <div class="gallery-overlay">
-                        <div class="gallery-caption">концептуальный эскиз</div>
+                        <div class="gallery-caption" data-ru="концептуальный эскиз" data-en="conceptual sketch">концептуальный эскиз</div>
                         <div class="gallery-icon">🔍</div>
                     </div>
                 </div>
-                <!-- ФОТО 2 -->
                 <div class="gallery-item" data-category="text">
                     <img src="images/043__210927969_457239778.jpg" alt="meow / DENIM / JEANS">
                     <div class="gallery-overlay">
@@ -208,7 +262,6 @@
                         <div class="gallery-icon">🔍</div>
                     </div>
                 </div>
-                <!-- ФОТО 3 -->
                 <div class="gallery-item" data-category="text">
                     <img src="images/034__210927969_457240191.jpg" alt="who does not risk does not win">
                     <div class="gallery-overlay">
@@ -216,7 +269,6 @@
                         <div class="gallery-icon">🔍</div>
                     </div>
                 </div>
-                <!-- ФОТО 4 -->
                 <div class="gallery-item" data-category="text">
                     <img src="images/009__210927969_457240845.jpg" alt="on neunsum semper inpendium">
                     <div class="gallery-overlay">
@@ -224,15 +276,14 @@
                         <div class="gallery-icon">🔍</div>
                     </div>
                 </div>
-                <!-- заглушки -->
                 <div class="gallery-item placeholder-item" data-category="all">
-                    <div class="placeholder-content">➕<br>ваша работа</div>
+                    <div class="placeholder-content" data-ru="➕<br>ваша работа" data-en="➕<br>your work">➕<br>ваша работа</div>
                 </div>
                 <div class="gallery-item placeholder-item" data-category="all">
-                    <div class="placeholder-content">➕<br>ваша работа</div>
+                    <div class="placeholder-content" data-ru="➕<br>ваша работа" data-en="➕<br>your work">➕<br>ваша работа</div>
                 </div>
                 <div class="gallery-item placeholder-item" data-category="all">
-                    <div class="placeholder-content">➕<br>ваша работа</div>
+                    <div class="placeholder-content" data-ru="➕<br>ваша работа" data-en="➕<br>your work">➕<br>ваша работа</div>
                 </div>
             </div>
         </div>
@@ -242,23 +293,23 @@
     <section id="reviews" class="section reviews-section">
         <div class="container">
             <div class="section-header fade-up">
-                <span class="section-tag">💬 отзывы</span>
-                <h2>Что говорят клиенты</h2>
-                <p class="section-subtitle">спасибо каждому за доверие ♡</p>
+                <span class="section-tag" data-ru="💬 отзывы" data-en="💬 reviews">💬 отзывы</span>
+                <h2 data-ru="Что говорят клиенты" data-en="What clients say">Что говорят клиенты</h2>
+                <p class="section-subtitle" data-ru="спасибо каждому за доверие ♡" data-en="thank you everyone for your trust ♡">спасибо каждому за доверие ♡</p>
             </div>
             <div class="reviews-grid">
                 <div class="review-card fade-up">
-                    <div class="review-text">"Лера — настоящий профессионал! Сделала тату мечты, всё прошло комфортно и безболезненно. Обязательно вернусь ещё!"</div>
+                    <div class="review-text" data-ru='"Лера — настоящий профессионал! Сделала тату мечты, всё прошло комфортно и безболезненно. Обязательно вернусь ещё!"' data-en='"Lera is a true professional! She made my dream tattoo, everything went comfortably and painlessly. I will definitely come back!"'>"Лера — настоящий профессионал! Сделала тату мечты, всё прошло комфортно и безболезненно. Обязательно вернусь ещё!"</div>
                     <div class="review-author">— Анна</div>
                     <div class="review-stars">★★★★★</div>
                 </div>
                 <div class="review-card fade-up delay-1">
-                    <div class="review-text">"Очень трепетно подошла к моему эскизу, учла все пожелания. Тату получилась идеальной. Спасибо большое!"</div>
+                    <div class="review-text" data-ru='"Очень трепетно подошла к моему эскизу, учла все пожелания. Тату получилась идеальной. Спасибо большое!"' data-en='"She approached my sketch very carefully, took into account all my wishes. The tattoo turned out perfect. Thank you very much!"'>"Очень трепетно подошла к моему эскизу, учла все пожелания. Тату получилась идеальной. Спасибо большое!"</div>
                     <div class="review-author">— Дмитрий</div>
                     <div class="review-stars">★★★★★</div>
                 </div>
                 <div class="review-card fade-up delay-2">
-                    <div class="review-text">"Отличная атмосфера, Лера очень приятный человек. Тату зажило быстро, выглядит потрясающе. Рекомендую!"</div>
+                    <div class="review-text" data-ru='"Отличная атмосфера, Лера очень приятный человек. Тату зажило быстро, выглядит потрясающе. Рекомендую!"' data-en='"Great atmosphere, Lera is a very pleasant person. The tattoo healed quickly, looks amazing. I recommend!"'>"Отличная атмосфера, Лера очень приятный человек. Тату зажило быстро, выглядит потрясающе. Рекомендую!"</div>
                     <div class="review-author">— Екатерина</div>
                     <div class="review-stars">★★★★★</div>
                 </div>
@@ -271,33 +322,33 @@
         <div class="container">
             <div class="contact-wrapper fade-up">
                 <div class="contact-info">
-                    <span class="section-tag">📞 связь</span>
-                    <h2>Хочешь тату?</h2>
-                    <p>Ответь на несколько вопросов, и я свяжусь с тобой для более детального обсуждения ♡</p>
+                    <span class="section-tag" data-ru="📞 связь" data-en="📞 contact">📞 связь</span>
+                    <h2 data-ru="Хочешь тату?" data-en="Want a tattoo?">Хочешь тату?</h2>
+                    <p data-ru="Ответь на несколько вопросов, и я свяжусь с тобой для более детального обсуждения ♡" data-en="Answer a few questions and I will contact you for a more detailed discussion ♡">Ответь на несколько вопросов, и я свяжусь с тобой для более детального обсуждения ♡</p>
                     <div class="contact-details">
-                        <div class="contact-item">📍 улица Байкальская, 188/1, Иркутск</div>
+                        <div class="contact-item" data-ru="📍 улица Байкальская, 188/1, Иркутск" data-en="📍 Baikalskaya str., 188/1, Irkutsk">📍 улица Байкальская, 188/1, Иркутск</div>
                         <div class="contact-item">📱 <a href="https://t.me/tattoo_leralera" target="_blank">Telegram</a> | <a href="https://vk.com/leralera_tattoo" target="_blank">VK</a></div>
-                        <div class="contact-item">⏰ Работаю по предварительной записи</div>
+                        <div class="contact-item" data-ru="⏰ Работаю по предварительной записи" data-en="⏰ Working by appointment">⏰ Работаю по предварительной записи</div>
                     </div>
-                    <div class="contact-small">✨ отвечаю обычно в течение часа</div>
+                    <div class="contact-small" data-ru="✨ отвечаю обычно в течение часа" data-en="✨ usually respond within an hour">✨ отвечаю обычно в течение часа</div>
                 </div>
                 <form class="contact-form" id="tattooForm">
-                    <input type="text" placeholder="Ваше имя" required>
-                    <input type="tel" placeholder="Номер телефона или Telegram" required>
+                    <input type="text" placeholder="Ваше имя" data-ru-placeholder="Ваше имя" data-en-placeholder="Your name" required>
+                    <input type="tel" placeholder="Номер телефона или Telegram" data-ru-placeholder="Номер телефона или Telegram" data-en-placeholder="Phone number or Telegram" required>
                     <select required>
-                        <option value="">Какая у вас идея?</option>
-                        <option>Есть готовый эскиз</option>
-                        <option>Нужна разработка эскиза</option>
-                        <option>Пока не уверен(а), хочу консультацию</option>
+                        <option value="" data-ru="Какая у вас идея?" data-en="What's your idea?">Какая у вас идея?</option>
+                        <option data-ru="Есть готовый эскиз" data-en="I have a ready sketch">Есть готовый эскиз</option>
+                        <option data-ru="Нужна разработка эскиза" data-en="Need sketch development">Нужна разработка эскиза</option>
+                        <option data-ru="Пока не уверен(а), хочу консультацию" data-en="Not sure yet, want consultation">Пока не уверен(а), хочу консультацию</option>
                     </select>
                     <select required>
-                        <option value="">Выберите желаемое место тату</option>
-                        <option>Рука (плечо/предплечье)</option>
-                        <option>Нога (бедро/голень)</option>
-                        <option>Спина/грудь</option>
-                        <option>Другое место</option>
+                        <option value="" data-ru="Выберите желаемое место тату" data-en="Choose desired tattoo placement">Выберите желаемое место тату</option>
+                        <option data-ru="Рука (плечо/предплечье)" data-en="Arm (shoulder/forearm)">Рука (плечо/предплечье)</option>
+                        <option data-ru="Нога (бедро/голень)" data-en="Leg (thigh/calf)">Нога (бедро/голень)</option>
+                        <option data-ru="Спина/грудь" data-en="Back/chest">Спина/грудь</option>
+                        <option data-ru="Другое место" data-en="Other place">Другое место</option>
                     </select>
-                    <button type="submit" class="btn-primary">📩 Отправить заявку</button>
+                    <button type="submit" class="btn-primary" data-ru="📩 Отправить заявку" data-en="📩 Send request">📩 Отправить заявку</button>
                 </form>
             </div>
         </div>
@@ -314,13 +365,103 @@
     </footer>
 
     <script>
-        // ========== LIGHTBOX (УВЕЛИЧЕННОЕ ФОТО) ==========
+        // ========== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА ==========
         (function() {
-            // Находим все фото в галерее
-            const images = document.querySelectorAll('.gallery-item img');
-            console.log('Lightbox: найдено фото для клика:', images.length);
+            const langToggle = document.getElementById('langToggle');
+            if (!langToggle) {
+                console.error('Кнопка переключения языка не найдена!');
+                return;
+            }
             
-            // Добавляем обработчик на каждое фото
+            let currentLang = localStorage.getItem('lang') || 'ru';
+            
+            function updateLanguage(lang) {
+                currentLang = lang;
+                
+                // Обновляем текст на кнопке
+                const ruSpan = langToggle.querySelector('.lang-ru');
+                const enSpan = langToggle.querySelector('.lang-en');
+                if (ruSpan && enSpan) {
+                    ruSpan.style.display = lang === 'ru' ? 'inline' : 'none';
+                    enSpan.style.display = lang === 'en' ? 'inline' : 'none';
+                }
+                
+                // Обновляем все элементы с data-ru и data-en
+                document.querySelectorAll('[data-ru][data-en]').forEach(el => {
+                    const text = el.getAttribute(`data-${lang}`);
+                    if (text) {
+                        // Проверяем, есть ли внутри HTML-теги
+                        if (text.includes('<')) {
+                            el.innerHTML = text;
+                        } else {
+                            el.textContent = text;
+                        }
+                    }
+                });
+                
+                // Обновляем плейсхолдеры в input
+                document.querySelectorAll('input[data-ru-placeholder][data-en-placeholder]').forEach(input => {
+                    const placeholder = input.getAttribute(`data-${lang}-placeholder`);
+                    if (placeholder) input.placeholder = placeholder;
+                });
+                
+                // Обновляем опции в select
+                document.querySelectorAll('select').forEach(select => {
+                    select.querySelectorAll('option[data-ru][data-en]').forEach(option => {
+                        const text = option.getAttribute(`data-${lang}`);
+                        if (text) option.textContent = text;
+                    });
+                });
+                
+                // Сохраняем в localStorage
+                localStorage.setItem('lang', lang);
+                console.log(`Язык переключён на: ${lang}`);
+            }
+            
+            // Загружаем сохранённый язык
+            updateLanguage(currentLang);
+            
+            // Обработчик клика
+            langToggle.addEventListener('click', function() {
+                const newLang = currentLang === 'ru' ? 'en' : 'ru';
+                updateLanguage(newLang);
+            });
+            
+            console.log('Переключение языка инициализировано. Текущий язык:', currentLang);
+        })();
+
+        // ========== ТЕМА ==========
+        (function() {
+            const toggleBtn = document.getElementById('themeToggle');
+            if (!toggleBtn) return;
+
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+
+            function toggleTheme() {
+                const isDark = document.body.classList.toggle('dark-theme');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }
+
+            toggleBtn.addEventListener('click', toggleTheme);
+
+            toggleBtn.addEventListener('mousedown', function(e) {
+                this.style.transform = 'scale(0.92)';
+            });
+            toggleBtn.addEventListener('mouseup', function(e) {
+                this.style.transform = 'scale(1)';
+            });
+            toggleBtn.addEventListener('mouseleave', function(e) {
+                this.style.transform = 'scale(1)';
+            });
+        })();
+
+        // ========== LIGHTBOX ==========
+        (function() {
+            const images = document.querySelectorAll('.gallery-item img');
+            
             for (let i = 0; i < images.length; i++) {
                 const img = images[i];
                 img.style.cursor = 'pointer';
@@ -334,9 +475,6 @@
                     const captionEl = parent?.querySelector('.gallery-caption');
                     const caption = captionEl ? captionEl.textContent : '';
                     
-                    console.log('Lightbox: открываю фото', src);
-                    
-                    // Создаём overlay
                     const overlay = document.createElement('div');
                     overlay.style.cssText = `
                         position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -345,7 +483,6 @@
                         cursor: pointer;
                     `;
                     
-                    // Большое фото
                     const bigImg = document.createElement('img');
                     bigImg.src = src;
                     bigImg.style.cssText = `
@@ -353,7 +490,6 @@
                         border-radius: 8px; box-shadow: 0 0 30px black;
                     `;
                     
-                    // Крестик закрытия
                     const closeBtn = document.createElement('div');
                     closeBtn.innerHTML = '✕';
                     closeBtn.style.cssText = `
@@ -362,7 +498,6 @@
                         font-family: monospace; z-index: 10001;
                     `;
                     
-                    // Подпись
                     const captionDiv = document.createElement('div');
                     captionDiv.textContent = caption;
                     captionDiv.style.cssText = `
@@ -376,7 +511,6 @@
                     if (caption) overlay.appendChild(captionDiv);
                     document.body.appendChild(overlay);
                     
-                    // Закрытие
                     const closeOverlay = () => {
                         if (document.body.contains(overlay)) {
                             document.body.removeChild(overlay);
@@ -448,10 +582,10 @@
             submitBtn.textContent = '⏳ Отправляю...';
             submitBtn.disabled = true;
 
-            const name = document.querySelector('input[placeholder="Ваше имя"]').value;
-            const phone = document.querySelector('input[placeholder="Номер телефона или Telegram"]').value;
-            const idea = document.querySelector('select:first-of-type').value;
-            const place = document.querySelector('select:last-of-type').value;
+            const name = document.querySelector('input[placeholder="Ваше имя"]')?.value || document.querySelector('input[data-ru-placeholder="Ваше имя"]')?.value;
+            const phone = document.querySelector('input[placeholder="Номер телефона или Telegram"]')?.value || document.querySelector('input[data-ru-placeholder="Номер телефона или Telegram"]')?.value;
+            const idea = document.querySelector('select:first-of-type')?.value;
+            const place = document.querySelector('select:last-of-type')?.value;
 
             const message = `🖤 **НОВАЯ ЗАЯВКА НА ТАТУ** 🖤\n\n👤 **Имя:** ${name}\n📱 **Контакты:** ${phone}\n💡 **Идея:** ${idea}\n📍 **Место:** ${place}\n\n📅 Отправлено с сайта leralera.tattoo`;
 
@@ -499,52 +633,48 @@
                 }
             });
         });
-                // ========== МОДАЛЬНОЕ ОКНО ДЛЯ ЗАЯВКИ ПО УСЛУГАМ ==========
-        
-        // Создаём модальное окно (если его нет)
+
+        // ========== МОДАЛЬНОЕ ОКНО ==========
         if (!document.querySelector('.modal-overlay')) {
             const modalHTML = `
                 <div class="modal-overlay">
                     <div class="modal-window">
                         <div class="modal-close">✕</div>
                         <div class="modal-header">
-                            <h3 id="modalServiceTitle">Запись на услугу</h3>
-                            <p>Заполните форму, и я свяжусь с вами</p>
+                            <h3 id="modalServiceTitle" data-ru="Запись на услугу" data-en="Booking service">Запись на услугу</h3>
+                            <p data-ru="Заполните форму, и я свяжусь с вами" data-en="Fill out the form and I will contact you">Заполните форму, и я свяжусь с вами</p>
                         </div>
                         <div class="modal-body">
                             <form class="contact-form" id="modalForm">
-                                <input type="text" id="modalName" placeholder="Ваше имя" required>
-                                <input type="tel" id="modalPhone" placeholder="Номер телефона или Telegram" required>
+                                <input type="text" id="modalName" placeholder="Ваше имя" data-ru-placeholder="Ваше имя" data-en-placeholder="Your name" required>
+                                <input type="tel" id="modalPhone" placeholder="Номер телефона или Telegram" data-ru-placeholder="Номер телефона или Telegram" data-en-placeholder="Phone number or Telegram" required>
                                 <select id="modalIdea" required>
-                                    <option value="">Какая у вас идея?</option>
-                                    <option>Есть готовый эскиз</option>
-                                    <option>Нужна разработка эскиза</option>
-                                    <option>Пока не уверен(а), хочу консультацию</option>
+                                    <option value="" data-ru="Какая у вас идея?" data-en="What's your idea?">Какая у вас идея?</option>
+                                    <option data-ru="Есть готовый эскиз" data-en="I have a ready sketch">Есть готовый эскиз</option>
+                                    <option data-ru="Нужна разработка эскиза" data-en="Need sketch development">Нужна разработка эскиза</option>
+                                    <option data-ru="Пока не уверен(а), хочу консультацию" data-en="Not sure yet, want consultation">Пока не уверен(а), хочу консультацию</option>
                                 </select>
                                 <select id="modalPlace" required>
-                                    <option value="">Выберите желаемое место тату</option>
-                                    <option>Рука (плечо/предплечье)</option>
-                                    <option>Нога (бедро/голень)</option>
-                                    <option>Спина/грудь</option>
-                                    <option>Другое место</option>
+                                    <option value="" data-ru="Выберите желаемое место тату" data-en="Choose desired tattoo placement">Выберите желаемое место тату</option>
+                                    <option data-ru="Рука (плечо/предплечье)" data-en="Arm (shoulder/forearm)">Рука (плечо/предплечье)</option>
+                                    <option data-ru="Нога (бедро/голень)" data-en="Leg (thigh/calf)">Нога (бедро/голень)</option>
+                                    <option data-ru="Спина/грудь" data-en="Back/chest">Спина/грудь</option>
+                                    <option data-ru="Другое место" data-en="Other place">Другое место</option>
                                 </select>
-                                <button type="submit" class="btn-primary">📩 Отправить заявку</button>
+                                <button type="submit" class="btn-primary" data-ru="📩 Отправить заявку" data-en="📩 Send request">📩 Отправить заявку</button>
                             </form>
                         </div>
-                        <div class="modal-footer">
-                            ✨ отвечаю обычно в течение часа
-                        </div>
+                        <div class="modal-footer" data-ru="✨ отвечаю обычно в течение часа" data-en="✨ usually respond within an hour">✨ отвечаю обычно в течение часа</div>
                     </div>
                 </div>
             `;
             document.body.insertAdjacentHTML('beforeend', modalHTML);
         }
-        
+
         const modalOverlay = document.querySelector('.modal-overlay');
         const modalClose = document.querySelector('.modal-close');
         const modalServiceTitle = document.getElementById('modalServiceTitle');
-        
-        // Открытие модального окна при клике на кнопку услуги
+
         document.querySelectorAll('.service-card .service-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -554,44 +684,38 @@
                 modalOverlay.classList.add('active');
             });
         });
-        
-        // Закрытие модального окна
+
         const closeModal = () => {
             modalOverlay.classList.remove('active');
         };
-        
+
         modalClose?.addEventListener('click', closeModal);
         modalOverlay?.addEventListener('click', (e) => {
             if (e.target === modalOverlay) closeModal();
         });
-        
+
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modalOverlay?.classList.contains('active')) {
                 closeModal();
             }
         });
-        
-        // Обработка отправки формы из модального окна
+
         document.getElementById('modalForm')?.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = '⏳ Отправляю...';
             submitBtn.disabled = true;
-            
+
             const name = document.getElementById('modalName').value;
             const phone = document.getElementById('modalPhone').value;
             const idea = document.getElementById('modalIdea').value;
             const place = document.getElementById('modalPlace').value;
             const service = modalServiceTitle.textContent.replace('Запись: ', '');
-            
+
             const message = `🖤 **НОВАЯ ЗАЯВКА НА ТАТУ** 🖤\n\n📋 **Услуга:** ${service}\n👤 **Имя:** ${name}\n📱 **Контакты:** ${phone}\n💡 **Идея:** ${idea}\n📍 **Место:** ${place}\n\n📅 Отправлено с сайта leralera.tattoo`;
-            
-            const WORKER_URL = 'https://telegram-proxy.shaidaviktor61.workers.dev';
-            const BOT_TOKEN = '8998613925:AAGhh90YZqp_HX0FuDJXfwOJRBQ9KSjTeTw';
-            const CHAT_ID = '340502499';
-            
+
             try {
                 const response = await fetch(`${WORKER_URL}/bot${BOT_TOKEN}/sendMessage`, {
                     method: 'POST',
@@ -618,44 +742,42 @@
                 submitBtn.disabled = false;
             }
         });
-        
-        // ========== ЛОГОТИП: КЛИК НА ТЕЛЕФОНЕ ==========
-const logo = document.querySelector('.logo');
-const isMobile = window.innerWidth <= 768;
 
-if (logo && isMobile) {
-    logo.addEventListener('click', function(e) {
-        e.preventDefault();
-        // Переключаем класс filled
-        this.classList.toggle('filled');
-    });
-}
+        // ========== ЛОГОТИП ==========
+        const logo = document.querySelector('.logo');
+        const isMobile = window.innerWidth <= 768;
 
-// При изменении размера окна (например, поворот телефона)
-window.addEventListener('resize', function() {
-    const nowMobile = window.innerWidth <= 768;
-    if (logo && nowMobile) {
-        // На мобильном: вешаем обработчик, если ещё не висит
-        if (!logo.hasClickListener) {
+        if (logo && isMobile) {
             logo.addEventListener('click', function(e) {
                 e.preventDefault();
                 this.classList.toggle('filled');
             });
-            logo.hasClickListener = true;
         }
-    }
-});
-    </script>
-<button id="toTop" style="position:fixed; bottom:20px; right:20px; background:#1a1a1a; color:white; border:none; border-radius:50%; width:50px; height:50px; cursor:pointer; display:none;">↑</button>
 
-<script>
-    const toTop = document.getElementById('toTop');
-    window.addEventListener('scroll', () => {
-        toTop.style.display = window.scrollY > 500 ? 'block' : 'none';
-    });
-    toTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-</script>
+        window.addEventListener('resize', function() {
+            const nowMobile = window.innerWidth <= 768;
+            if (logo && nowMobile) {
+                if (!logo.hasClickListener) {
+                    logo.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        this.classList.toggle('filled');
+                    });
+                    logo.hasClickListener = true;
+                }
+            }
+        });
+    </script>
+    
+    <button id="toTop" style="position:fixed; bottom:20px; right:20px; background:#1a1a1a; color:white; border:none; border-radius:50%; width:50px; height:50px; cursor:pointer; display:none;">↑</button>
+
+    <script>
+        const toTop = document.getElementById('toTop');
+        window.addEventListener('scroll', () => {
+            toTop.style.display = window.scrollY > 500 ? 'block' : 'none';
+        });
+        toTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
